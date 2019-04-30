@@ -72,7 +72,7 @@ np.mean(predicted == twenty_test.target)
 
 from sklearn.linear_model import SGDClassifier
 text_clf_svm = Pipeline([('vect', CountVectorizer()), ('tfidf', TfidfTransformer()),
-                         ('clf-svm', SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, n_iter=5, random_state=42))])
+                         ('clf-svm', SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, max_iter=5, tol=0.21, random_state=42))])
 
 text_clf_svm = text_clf_svm.fit(twenty_train.data, twenty_train.target)
 predicted_svm = text_clf_svm.predict(twenty_test.data)
